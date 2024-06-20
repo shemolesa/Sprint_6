@@ -9,13 +9,13 @@ class BasePage:
 
     @allure.step(" поиск элемента с ожиданием")
     def find_element_with_wait(self, locator):
-        WebDriverWait(self.driver, 5).until((expected_conditions.visibility_of_element_located(locator)))
+        WebDriverWait(self.driver, 8).until((expected_conditions.visibility_of_element_located(locator)))
         return self.driver.find_element(*locator)
 
     @allure.step("поиск элемента с нажатием на него")
     def click_to_element(self, locator):
-        WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located(locator))
-        self.driver.find_element(*locator).click()
+ #       WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located(locator))
+        self.find_element_with_wait(locator).click()
 
     @allure.step("поиск элемента ввода и ввод текста")
     def add_text_to_element(self, locator, text):
