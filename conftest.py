@@ -1,14 +1,9 @@
 import pytest
 import data
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.support.wait import WebDriverWait
-from pages.base_page import BasePage
-from locators.main_page_locators import MainPageLocators
-from pages.main_page import MainPage
 from pages.transitions_page import TransitionsPage
 from pages.order_page import OrderPage
+from pages.main_page import MainPage
 
 @pytest.fixture() # инициация вебдрайвера
 def driver():
@@ -21,7 +16,7 @@ def driver():
 @pytest.fixture() # создание объекта главной страницы и принятие куков
 def main_page(driver):
     main_page = MainPage(driver)
-    main_page.click_to_element(MainPageLocators.BUTTON_COOKIE)
+    main_page.click_coockie()
     return main_page
 
 @pytest.fixture() # создание объекта страницы переходов
