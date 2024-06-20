@@ -12,10 +12,7 @@ from pages.order_page import OrderPage
 
 @pytest.fixture() # инициация вебдрайвера
 def driver():
-#    options = Options()
-#    options.add_argument('--window-size=1920,1080')
     driver = webdriver.Firefox()
-#    driver.set_window_size(1920, 1080)
     driver.get(data.URL_MAIN_PAGE)
     yield driver
     driver.quit()
