@@ -1,5 +1,6 @@
 from pages.base_page import BasePage
 from locators.order_page_locators import OrderPageLocators
+from locators.main_page_locators import MainPageLocators
 from helpers import generated_occupancy, generated_metro, generated_date
 import allure
 
@@ -13,6 +14,7 @@ class OrderPage(BasePage):
 
     @allure.step("Оформление заказа")
     def set_order(self, check_color_locator, order_info_dict):
+        self.click_to_element(MainPageLocators.BUTTON_ORDER_HEADER) # нажимаем на кнопку "Заказать" в шапке
         self.add_text_to_element(OrderPageLocators.FIELD_NAME, order_info_dict['name'])
         self.add_text_to_element(OrderPageLocators.FIELD_SURNAME, order_info_dict['surname'])
         self.add_text_to_element(OrderPageLocators.FIELD_ADDRESS, order_info_dict['address'])
